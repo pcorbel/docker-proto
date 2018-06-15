@@ -1,6 +1,3 @@
-# This is a multistage Docker build to have an All In One Proto compiler for Data-events NG
-MAINTAINER happn <data.engineers@happn.fr>
-
 # First Stage: protoc_builder
 FROM alpine:3.7 as protoc_builder
 
