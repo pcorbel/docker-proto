@@ -155,9 +155,10 @@ COPY --from=swift_builder /protoc-gen-swift /protoc-gen-swift
 
 RUN for p in protoc-gen-swift protoc-gen-swiftgrpc; do ln -s /protoc-gen-swift/${p} /usr/bin/${p}; done \
     && apt-get update \
-    && apt-get install --no-install-recommends -t jessie-backports -y \
+    && apt-get install --no-install-recommends -y \
        curl \
        python-pip \
+       python-setuptools \
     && mkdir -p /protobuf/google/protobuf \
     && for f in any duration descriptor empty struct timestamp wrappers; do curl -L -o /protobuf/google/protobuf/${f}.proto https://raw.githubusercontent.com/google/protobuf/master/src/google/protobuf/${f}.proto; done \
     && mkdir -p /protobuf/google/api \
